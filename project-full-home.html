@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coastal Retreat Kitchen | DBD Lifestyles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Project Detail Styles */
+        .project-hero {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .project-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .project-header {
+            margin-bottom: 3rem;
+        }
+
+        .project-header h1 {
+            font-family: 'Lobster Two', cursive;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 4rem;
+        }
+
+        .project-story h2 {
+            font-family: 'Lobster Two', cursive;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .project-story p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-details-box {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .project-details-box h3 {
+            font-family: 'Lobster Two', cursive;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .photo-gallery {
+            margin-top: 4rem;
+        }
+
+        .photo-gallery h2 {
+            font-family: 'Lobster Two', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(192, 208, 251, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-details-box {
+                position: static;
+            }
+
+            .project-hero {
+                height: 300px;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: 90px; width: auto;">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Image -->
+    <div class="project-hero">
+        <img src="images/cleanKitchenView.JPG" alt="Coastal Kitchen Renovation">
+    </div>
+
+    <!-- Project Content -->
+    <section>
+        <div class="container">
+            <a href="portfolio.html" class="back-button">
+                ← Back to Portfolio
+            </a>
+
+            <div class="project-header">
+                <h1>The Coastal Retreat Kitchen</h1>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Project Type</span>
+                        <span class="meta-value">Kitchen Renovation</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">Orlando, FL</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Year</span>
+                        <span class="meta-value">2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Service</span>
+                        <span class="meta-value">Design Blueprint</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="project-story">
+                    <h2>The Story</h2>
+                    <p>When this family reached out, they had one simple request: bring the beach home. After years of dreaming about their favorite coastal vacations, they wanted to wake up to that same sense of calm and brightness every single day.</p>
+                    
+                    <p>The existing kitchen was dark, dated, and disconnected from the rest of their home. Heavy wood cabinets blocked natural light, and the closed-off layout made entertaining nearly impossible. We knew we had to open things up—literally and metaphorically.</p>
+                    
+                    <p>Our solution started with a complete gut renovation. We removed the upper cabinets on one wall to install open shelving, instantly creating an airy feel. The soft blue lower cabinets paired with white quartz countertops became the foundation of the coastal palette. Natural wood accents and brass hardware added warmth without losing that breezy, relaxed vibe.</p>
+                    
+                    <p>The backsplash was where we got to have some fun—a subtle wave-pattern tile that catches the light beautifully and gives just a hint of the ocean without being too literal. We also repositioned the island to create better flow and added comfortable seating so the space could serve as both a workspace and a gathering spot.</p>
+                    
+                    <p>The result? A kitchen that feels like a permanent vacation. Our clients tell us they brew their morning coffee and feel like they're back at the beach house. Mission accomplished.</p>
+                </div>
+
+                <div class="project-details-box">
+                    <h3>Project Details</h3>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Duration</div>
+                        <div class="detail-value">8 weeks</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Square Footage</div>
+                        <div class="detail-value">250 sq ft</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Key Features</div>
+                        <div class="detail-value">
+                            • Custom cabinetry<br>
+                            • Quartz countertops<br>
+                            • Open shelving<br>
+                            • Wave-pattern backsplash<br>
+                            • Brass fixtures
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Color Palette</div>
+                        <div class="detail-value">Coastal Blue, White, Natural Wood, Brass</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section style="background: var(--bg-light);">
+        <div class="container">
+            <div class="photo-gallery">
+                <h2>Project Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/cleanKitchenView.JPG" alt="Kitchen Overview">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/simpleKitchenIrid.JPG" alt="Kitchen Detail">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/farmhouseKitchen.jpg" alt="Kitchen Island">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/modernKitchen.PNG" alt="Kitchen Backsplash">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/cleanKitchenView.JPG" alt="Kitchen Before">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/simpleKitchenIrid.JPG" alt="Kitchen After">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Love This Project?</h2>
+            <p>Let's create something beautiful for your home too</p>
+            <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: 50px; width: auto;">
+                    <p>Whimsical Luxury Interior Design</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>(207) 491-3739</p>
+                    <p>(609) 468 - 4330</p>
+                    <p>info@dbd-lifestyles.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 12c0-2.5 2-4 4-4s4 1.5 4 4c0 2-1 3-2 3s-1.5-1-1.5-1-1 2-1.5 3.5c-.5 1.5-1 2.5-1 2.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

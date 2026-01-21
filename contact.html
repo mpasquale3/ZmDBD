@@ -37,77 +37,28 @@
     <section class="page-header decorative-border" style="padding: 80px 0; text-align: center;">
     <div class="container">
         <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem;">Contact Us </h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Let's bring your vision to life! Whether you're ready to start a project immediately, or just exploring ideas, we'd love to hear from you. Use the form below or reach out directly-our team will respond promptly.</p>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Let's bring your vision to life! Whether you're ready to start a project immediately, or just exploring ideas, we'd love to hear from you. Use the form below or reach out directly.</p>
     </div>
 </section>
 
- 
-
-                <!-- Contact Form -->
-                <div>
-                    <form class="contact-form" id="contactForm">
-                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1.5rem;">Let's Get Together</h3>
-                        
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Service Interested In *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service...</option>
-                                <option value="room-refresh">Room Refresh</option>
-                                <option value="design-blueprint">Your Design Blueprint</option>
-                                <option value="destination-design">Destination Design</option>
-                                <option value="consultation">General Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Select timeline...</option>
-                                <option value="immediate">Ready to start immediately</option>
-                                <option value="1-3-months">Within 1-3 months</option>
-                                <option value="3-6-months">Within 3-6 months</option>
-                                <option value="6-plus-months">6+ months</option>
-                                <option value="just-exploring">Just exploring ideas</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="budget">Estimated Budget</label>
-                            <select id="budget" name="budget">
-                                <option value="">Select budget range...</option>
-                                <option value="under-1k">Under $1,000</option>
-                                <option value="1k-5k">$1,000 - $5,000</option>
-                                <option value="5k-10k">$5,000 - $10,000</option>
-                                <option value="10k-25k">$10,000 - $25,000</option>
-                                <option value="25k-50k">$25,000 - $50,000</option>
-                                <option value="50k-plus">$50,000+</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Tell Us About Your Project *</label>
-                            <textarea id="message" name="message" required placeholder="Share your vision, goals, or any specific ideas you have in mind..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary form-submit">Send Message</button>
-                    </form>
+    <!-- Contact Form Section -->
+    <section>
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h3 style="font-family: 'Lobster Two', cursive; font-size: 2rem; color: var(--primary-color); margin-bottom: 2rem; text-align: center;">Let's Get Together</h3>
+                
+                <!-- Embedded Google Form -->
+                <div style="background: var(--bg-light); padding: 40px; border-radius: 10px; display: flex; justify-content: center;">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfqAi6_T1Ixski_UINWt0BU9wrupjUntPmchhX-hIjw6AS8ZQ/viewform?embedded=true" 
+                        width="700" 
+                        height="1400" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        style="border-radius: 8px; max-width: 100%;">
+                        Loading…
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -118,7 +69,7 @@
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 class="section-title center">We Completely Personalize Experience Tailored To You</h2>
-                <p style="color: var(--text-light); line-height: 1.8;">After you reach out, we'll schedule an initial consultation to discuss your vision, budget, and timeline. From there, we create a customized plan that brings your space to life-on your terms.</p>
+                <p style="color: var(--text-light); line-height: 1.8;">After you reach out, we'll schedule an initial consultation to discuss your vision, budget, and timeline. From there, we create a customized plan that brings your space to life.</p>
             </div>
         </div>
     </section>
@@ -128,33 +79,49 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                      <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: 50px; width: auto;">
-                    <p>Whimsical Luxury Interior Design</p>
+            <div class="footer-content" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+                <div class="footer-section footer-brand">
+                    <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: auto; width: 70px; margin-bottom: 15px;">
+                    <h3 style="font-family: 'Lobster Two', cursive; font-size: 1.3rem; font-weight: 400; color: #333333; margin-bottom: 5px;">DBD Lifestyles</h3>
+                    <p style="font-size: 1rem; color: #666666; font-style: italic; margin: 0;">Whimsical Luxury Interior Design</p>
                 </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html" style="color: #666666; text-decoration: none;">Home</a></p>
+                    <p><a href="services.html" style="color: #666666; text-decoration: none;">Services</a></p>
+                    <p><a href="portfolio.html" style="color: #666666; text-decoration: none;">Portfolio</a></p>
+                    <p><a href="contact.html" style="color: #666666; text-decoration: none;">Contact</a></p>
+                </div>
+                
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>(207) 491-3739</p>
-                    <p>(609) 468 - 4330</p>
-                    <p>info@dbd-lifestyles.com</p>
+                    <p>(609) 468-4330</p>
+                    <p><a href="mailto:info@dbd-lifestyles.com" style="color: rgba(255,255,255,0.85); text-decoration: none;">info@dbd-lifestyles.com</a></p>
                 </div>
+                
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">
+                        <a href="#" aria-label="Instagram" title="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <a href="#" aria-label="Facebook">
+                        <a href="#" aria-label="TikTok" title="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook" title="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
-                        <a href="#" aria-label="Pinterest">
+                        <a href="#" aria-label="Pinterest" title="Pinterest">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M8 12c0-2.5 2-4 4-4s4 1.5 4 4c0 2-1 3-2 3s-1.5-1-1.5-1-1 2-1.5 3.5c-.5 1.5-1 2.5-1 2.5"></path>
@@ -164,9 +131,4 @@
                 </div>
             </div>
             
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+            

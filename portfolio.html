@@ -9,177 +9,89 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional styles for portfolio options showcase */
-        .option-divider {
-            background: var(--bg-light);
-            padding: 40px 20px;
-            text-align: center;
-            margin: 60px 0;
-            border-top: 3px solid var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-        
-        .option-divider h2 {
-            font-family: 'Lobster Two', cursive;
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .option-divider p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Featured Projects Layout */
-        .featured-project {
+        /* Portfolio Grid Styles */
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
         }
 
-        .featured-project.reverse {
-            direction: rtl;
-        }
-
-        .featured-project.reverse > * {
-            direction: ltr;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: 400px;
-            background: #f0f0f0;
-            border-radius: 10px;
+        .project-card {
+            position: relative;
             overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
-        .featured-image img {
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(192, 208, 251, 0.4);
+        }
+
+        .project-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .featured-content h3 {
-            font-family: 'Lobster Two', cursive;
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .featured-meta {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .featured-content p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Room Categories Layout */
-        .category-section {
-            margin-bottom: 60px;
-        }
-
-        .category-header {
-            font-family: 'Lobster Two', cursive;
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 25px;
-            padding-left: 15px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .coming-soon-card {
-            aspect-ratio: 4/3;
-            background: var(--bg-light);
-            border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* Timeline Layout */
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .timeline-card {
-            background: var(--bg-white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: var(--transition);
         }
 
-        .timeline-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(192, 208, 251, 0.3);
+        .project-card:hover img {
+            transform: scale(1.1);
         }
 
-        .timeline-image {
-            width: 100%;
-            height: 250px;
-            background: #f0f0f0;
-            overflow: hidden;
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
+            padding: 30px 20px 20px;
+            transform: translateY(0);
+            transition: var(--transition);
         }
 
-        .timeline-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .project-card:hover .project-overlay {
+            background: linear-gradient(rgba(192, 208, 251, 0.95), rgba(189, 207, 255, 0.95));
         }
 
-        .timeline-content {
-            padding: 25px;
+        .project-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
-        .timeline-content h3 {
-            font-family: 'Lobster Two', cursive;
+        .project-card:hover .project-tag {
+            background: white;
             color: var(--primary-color);
-            font-size: 1.6rem;
-            margin-bottom: 8px;
         }
 
-        .timeline-date {
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+        .project-title {
+            font-family: 'Lobster Two', cursive;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0;
+            font-weight: 400;
         }
 
-        .timeline-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .project-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .featured-project,
-            .timeline-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-project.reverse {
-                direction: ltr;
-            }
-
-            .category-grid {
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -211,283 +123,106 @@
     <!-- Page Header -->
     <section class="page-header decorative-border" style="padding: 80px 0; text-align: center;">
         <div class="container">
-            <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem;">Portfolio</h1>
-            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">See our latest projects, before-the-scenes, tips, and design inspiration in real time</p>
+            <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem;">Our Work</h1>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">From whimsical bedrooms to luxurious kitchens, explore our favorite projects and the stories behind them.</p>
         </div>
     </section>
-    
 
-    <!-- LAYOUT OPTION 1: Simple Grid Gallery (Current Style) -->
-    <div class="option-divider">
-        <h2>Option 1: Simple Grid Gallery</h2>
-        <p>Clean image grid with hover overlays • Best for showing many projects at once</p>
-    </div>
-
+    <!-- Portfolio Grid -->
     <section>
         <div class="container">
-            <div class="portfolio-gallery">
-                <div class="portfolio-item">
-                    <img src="images/farmhouseKitchen.jpg" alt="Kitchen Design Project">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Modern Kitchen</h3>
-                            <p>Complete Renovation</p>
-                        </div>
+            <div class="portfolio-grid">
+                
+                <!-- Project 1: Coastal Kitchen -->
+                <a href="project-coastal-kitchen.html" class="project-card">
+                    <img src="images/cleanKitchenView.JPG" alt="Coastal Kitchen Renovation">
+                    <div class="project-overlay">
+                        <span class="project-tag">Kitchen</span>
+                        <h3 class="project-title">The Coastal Retreat</h3>
+                        <p class="project-subtitle">Kitchen Renovation • Orlando, FL</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/brownOrangeLiving.JPG" alt="Living Room Design">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Cozy Living Room</h3>
-                            <p>Room Refresh</p>
-                        </div>
+                <!-- Project 2: Modern Farmhouse Kitchen -->
+                <a href="project-farmhouse-kitchen.html" class="project-card">
+                    <img src="images/farmhouseKitchen.jpg" alt="Modern Farmhouse Kitchen">
+                    <div class="project-overlay">
+                        <span class="project-tag">Kitchen</span>
+                        <h3 class="project-title">Modern Farmhouse</h3>
+                        <p class="project-subtitle">Complete Kitchen Remodel</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/simpleKitchenIrid.JPG" alt="Dining Area">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Elegant Dining</h3>
-                            <p>Full Design</p>
-                        </div>
+                <!-- Project 3: Cozy Living Room -->
+                <a href="project-cozy-living.html" class="project-card">
+                    <img src="images/brownOrangeLiving.JPG" alt="Cozy Living Room">
+                    <div class="project-overlay">
+                        <span class="project-tag">Living Room</span>
+                        <h3 class="project-title">Warm & Inviting</h3>
+                        <p class="project-subtitle">Living Room Refresh</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/modernBathroom.jpg" alt="Bathroom Renovation">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Spa Bathroom</h3>
-                            <p>Complete Renovation</p>
-                        </div>
+                <!-- Project 4: Elegant Living Space -->
+                <a href="project-elegant-living.html" class="project-card">
+                    <img src="images/leatherLiving.jpg" alt="Elegant Living Room">
+                    <div class="project-overlay">
+                        <span class="project-tag">Living Room</span>
+                        <h3 class="project-title">Timeless Elegance</h3>
+                        <p class="project-subtitle">Full Living Room Design</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/masterBedPurple.jpg" alt="Bedroom Design">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Serene Bedroom</h3>
-                            <p>Room Refresh</p>
-                        </div>
+                <!-- Project 5: Purple Master Bedroom -->
+                <a href="project-purple-bedroom.html" class="project-card">
+                    <img src="images/masterBedPurple.jpg" alt="Purple Master Bedroom">
+                    <div class="project-overlay">
+                        <span class="project-tag">Bedroom</span>
+                        <h3 class="project-title">Serene Sanctuary</h3>
+                        <p class="project-subtitle">Master Bedroom Retreat</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/navyPiano.jpg" alt="Home Office">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Creative Office</h3>
-                            <p>Design Blueprint</p>
-                        </div>
+                <!-- Project 6: Children's Bedroom -->
+                <a href="project-childrens-bedroom.html" class="project-card">
+                    <img src="images/childrenBedroom.PNG" alt="Children's Bedroom">
+                    <div class="project-overlay">
+                        <span class="project-tag">Bedroom</span>
+                        <h3 class="project-title">Whimsical Dreams</h3>
+                        <p class="project-subtitle">Nursery & Kids Room</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/welcomeHome.jpeg" alt="Entryway Design">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Welcoming Entryway</h3>
-                            <p>Room Refresh</p>
-                        </div>
+                <!-- Project 7: Spa Bathroom -->
+                <a href="project-spa-bathroom.html" class="project-card">
+                    <img src="images/modernBathroom.jpg" alt="Modern Spa Bathroom">
+                    <div class="project-overlay">
+                        <span class="project-tag">Bathroom</span>
+                        <h3 class="project-title">Spa Escape</h3>
+                        <p class="project-subtitle">Luxury Bathroom Remodel</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/windowSeat.jpeg" alt="Outdoor Space">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Outdoor Oasis</h3>
-                            <p>Complete Design</p>
-                        </div>
+                <!-- Project 8: Full Home Design -->
+                <a href="project-full-home.html" class="project-card">
+                    <img src="images/welcomeHome.jpeg" alt="Complete Home Design">
+                    <div class="project-overlay">
+                        <span class="project-tag">Full Home</span>
+                        <h3 class="project-title">The Complete Journey</h3>
+                        <p class="project-subtitle">Whole Home Transformation</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item">
-                    <img src="images/ceilingWallpaper.jpg" alt="Guest Room">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-content">
-                            <h3>Guest Retreat</h3>
-                            <p>Destination Design</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- LAYOUT OPTION 2: Featured Projects with Stories -->
-    <div class="option-divider">
-        <h2>Option 2: Featured Projects with Stories</h2>
-        <p>Showcase projects with detailed narratives • Best for storytelling and personal branding</p>
-    </div>
-
-    <section>
-        <div class="container">
-            <div class="featured-project">
-                <div class="featured-image">
-                    <img src="images/cleanKitchenView.JPG" alt="Featured Project">
-                </div>
-                <div class="featured-content">
-                    <h3>The Coastal Retreat Kitchen</h3>
-                    <div class="featured-meta">Kitchen Renovation • 2024 • Room Refresh</div>
-                    <p>When this family reached out, they dreamed of bringing their favorite beach vacation vibes into their everyday life. We transformed this dated kitchen into a bright, airy space with coastal touches. The light blue cabinets, natural wood accents, and marble countertops now create the perfect backdrop for family gatherings and morning coffee.</p>
-                </div>
-            </div>
-
-            <div class="featured-project reverse">
-                <div class="featured-image">
-                    <img src="images/farmhouseKitchen.jpg" alt="Featured Project">
-                </div>
-                <div class="featured-content">
-                    <h3>Modern Farmhouse Bath</h3>
-                    <div class="featured-meta">Bathroom • 2024 • Design Blueprint</div>
-                    <p>Starting with just a simple refresh request, we discovered the hidden potential in this small bathroom. By removing the bulky vanity and installing a floating sink, we created the illusion of more space. The black and white tile pattern adds personality while the brass fixtures bring warmth and luxury.</p>
-                </div>
-            </div>
-
-            <div class="featured-project">
-                <div class="featured-image">
-                    <img src="images/childrenBedroom.PNG" alt="Featured Project">
-                </div>
-                <div class="featured-content">
-                    <h3>The Dreamy Nursery</h3>
-                    <div class="featured-meta">Bedroom • 2023 • Your Design Blueprint</div>
-                    <p>When this family reached out, they knew they wanted something special for their first baby. We created a whimsical yet sophisticated nursery that will grow with their child. Soft pastels, natural textures, and playful artwork create a space that's both calming and inspiring.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LAYOUT OPTION 3: By Room Type Categories -->
-    <div class="option-divider">
-        <h2>Option 3: Organized by Room Type</h2>
-        <p>Categorized by space • Easy to find relevant projects • Can add more over time</p>
-    </div>
-
-    <section>
-        <div class="container">
-            <div class="category-section">
-                <h3 class="category-header">Kitchens</h3>
-                <div class="category-grid">
-                    <div class="portfolio-item">
-                        <img src="images/simpleKitchenIrid.JPG" alt="Kitchen Project">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Modern Kitchen</h3>
-                                <p>2024</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/portfolio-3.jpg" alt="Kitchen Project">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Farmhouse Kitchen</h3>
-                                <p>2023</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coming-soon-card">
-                        More Projects Coming Soon
-                    </div>
-                </div>
-            </div>
-
-            <div class="category-section">
-                <h3 class="category-header">Bathrooms</h3>
-                <div class="category-grid">
-                    <div class="portfolio-item">
-                        <img src="images/modernBathroom.jpg" alt="Bathroom Project">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Spa Bathroom</h3>
-                                <p>2024</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coming-soon-card">
-                        More Projects Coming Soon
-                    </div>
-                    <div class="coming-soon-card">
-                        More Projects Coming Soon
-                    </div>
-                </div>
-            </div>
-
-            <div class="category-section">
-                <h3 class="category-header">Living Spaces</h3>
-                <div class="category-grid">
-                    <div class="portfolio-item">
-                        <img src="images/leatherLiving.jpg" alt="Living Room">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Cozy Living Room</h3>
-                                <p>2024</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/portfolio-6.jpg" alt="Home Office">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Creative Office</h3>
-                                <p>2023</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/welcomeHome.jpeg" alt="Entryway">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Welcoming Entryway</h3>
-                                <p>2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="category-section">
-                <h3 class="category-header">Bedrooms</h3>
-                <div class="category-grid">
-                    <div class="portfolio-item">
-                        <img src="images/masterBedPurple.jpg" alt="Bedroom">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Serene Bedroom</h3>
-                                <p>2023</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/whiteBlueBedroom.jpg" alt="Guest Room">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Guest Retreat</h3>
-                                <p>2024</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coming-soon-card">
-                        More Projects Coming Soon
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
     <!-- Award Section -->
     <section style="background: var(--bg-light);">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 class="section-title center">Award-Winning Design</h2>
                 <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">Our work has been recognized for its creativity and attention to detail. In 2023, one of our projects won the Maine Home+Design award for Best New Build, affirming our commitment to excellence and innovative design.</p>
-                <img src="images/awards.jpg" alt="Design Awards and Publications" style="max-width: 400px; margin: 0 auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
         </div>
     </section>
@@ -495,46 +230,58 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>See Our Latest Projects, Behind-the-Scenes, Tips, and Design Inspiration in Real Time</h2>
-            <p>Follow us on social media for daily inspiration</p>
-            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 2rem;">
-                <a href="#" class="btn btn-secondary">Instagram</a>
-                <a href="#" class="btn btn-secondary">TikTok</a>
-                <a href="#" class="btn btn-secondary">Pinterest</a>
-            </div>
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's create something beautiful together</p>
+            <a href="contact.html" class="btn btn-secondary">Get Started</a>
         </div>
     </section>
 
-    <!-- Footer -->
+   <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: 70px; width: auto; margin-bottom: 10px;">
-                    <p>Whimsical Luxury Interior Design</p>
+            <div class="footer-content" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+                <div class="footer-section footer-brand">
+                    <img src="images/logoEllipse.png" alt="DBD Lifestyles Logo" style="height: auto; width: 70px; margin-bottom: 15px;">
+                    <h3 style="font-family: 'Lobster Two', cursive; font-size: 1.3rem; font-weight: 400; color: #333333; margin-bottom: 5px;">DBD Lifestyles</h3>
+                    <p style="font-size: 1rem; color: #666666; font-style: italic; margin: 0;">Whimsical Luxury Interior Design</p>
                 </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html" style="color: #666666; text-decoration: none;">Home</a></p>
+                    <p><a href="services.html" style="color: #666666; text-decoration: none;">Services</a></p>
+                    <p><a href="portfolio.html" style="color: #666666; text-decoration: none;">Portfolio</a></p>
+                    <p><a href="contact.html" style="color: #666666; text-decoration: none;">Contact</a></p>
+                </div>
+                
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>(207) 491-3739</p>
-                    <p>(609) 468 - 4330</p>
-                    <p>info@dbd-lifestyles.com</p>
+                    <p>(609) 468-4330</p>
+                    <p><a href="mailto:info@dbd-lifestyles.com" style="color: rgba(255,255,255,0.85); text-decoration: none;">info@dbd-lifestyles.com</a></p>
                 </div>
+                
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">
+                        <a href="#" aria-label="Instagram" title="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <a href="#" aria-label="Facebook">
+                        <a href="#" aria-label="TikTok" title="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook" title="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
-                        <a href="#" aria-label="Pinterest">
+                        <a href="#" aria-label="Pinterest" title="Pinterest">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M8 12c0-2.5 2-4 4-4s4 1.5 4 4c0 2-1 3-2 3s-1.5-1-1.5-1-1 2-1.5 3.5c-.5 1.5-1 2.5-1 2.5"></path>
@@ -543,9 +290,8 @@
                     </div>
                 </div>
             </div>
-           
-        </div>
-    </footer>
+            
+            
 
     <script src="js/script.js"></script>
 </body>

@@ -464,62 +464,293 @@ section {
 }
 
 /* ===== Footer ===== */
+/* Enhanced Footer Styling */
 .footer {
-    background: var(--text-dark);
-    color: white;
-    padding: 60px 0 20px;
+    background: #FAF8F6;
+    color: #333333;
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--periwinkle), var(--accent-color));
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
     margin-bottom: 40px;
 }
 
-.footer-section h4 {
-    font-family: var(--font-heading);
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.footer-section p {
-    margin-bottom: 0.5rem;
-    color: rgba(255,255,255,0.8);
+.footer-brand img {
+    height: 70px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    color: #666666;
+    font-style: italic;
+}
+
+.footer-section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p,
+.footer-section a {
+    margin-bottom: 0.8rem;
+    color: #666666;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--periwinkle);  /* Changed to periwinkle */
+    transform: translateX(5px);
 }
 
 .social-links {
     display: flex;
     gap: 15px;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    
 }
 
 .social-links a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.1);
+    width: 45px;
+    height: 45px;
+    background: var(--secondary-color);  /* Light pink background */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    border: 2px solid transparent;
+    color: white;  /* Added: Makes the SVG icons white */
+}
+
+.social-links a svg {
+    color: white;  /* Added: Ensures SVG icons are white */
 }
 
 .social-links a:hover {
-    background: var(--periwinkle);  /* Periwinkle hover */
-    transform: translateY(-3px);
+    background: var(--periwinkle);  /* Periwinkle on hover */
+    transform: translateY(-5px) scale(1.1);
+    border-color: var(--periwinkle);
+    box-shadow: 0 5px 20px rgba(192, 208, 251, 0.4);
+    color: white;  /* Keep icons white on hover */
 }
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.6);
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: #666666;
+    font-size: 0.9rem;
 }
 
-/* ===== Service Cards Grid ===== */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+
+/* ===== Intro Section Styling ===== */
+.intro-section {
+    background: white;
+    padding: 50px 0 40px;
+    text-align: center;
+}
+
+.intro-section h2 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.intro-section .tagline {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: 750px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .intro-section {
+        padding: 30px 0 25px;  /* Even more compact on mobile */
+    }
+
+    .intro-section h2 {
+        font-size: 1.8rem;  /* Reduced from 2rem */
+    }
+
+    .intro-section .tagline {
+        font-size: 1rem;  /* Reduced from 1.1rem */
+    }
+}
+
+/* ===== Enhanced Footer Styling ===== */
+.footer {
+    background: #FAF8F6;
+    color: #333333;
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--periwinkle), var(--accent-color));
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-brand img {
+    height: 70px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    color: #666666;
+    font-style: italic;
+}
+
+.footer-section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p,
+.footer-section a {
+    margin-bottom: 0.8rem;
+    color: #666666;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--periwinkle);
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    color: white;
+}
+
+.social-links a svg {
+    stroke: white;
+}
+
+.social-links a:hover {
+    background: var(--periwinkle);
+    transform: translateY(-5px) scale(1.1);
+    border-color: var(--periwinkle);
+    box-shadow: 0 5px 20px rgba(192, 208, 251, 0.4);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .intro-section h2 {
+        font-size: 2rem;
+    }
+
+    .intro-section .tagline {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== Service Cards Grid (2 per row) ===== */
 .service-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 }
 
